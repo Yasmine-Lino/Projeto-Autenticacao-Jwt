@@ -1,5 +1,6 @@
 package br.com.yasmine.lino.model;
 
+//TODO: Para começar a seguir nosso padrão utilize o Lombook para gerar os Getters e Setters
 public class AutenticacaoRequest {
 
     private String usuario;

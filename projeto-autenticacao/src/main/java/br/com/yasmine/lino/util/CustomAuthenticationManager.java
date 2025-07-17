@@ -6,6 +6,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Component;
 
+//TODO: Essa classe poderia ser configurada como um bean anotando com @Component, não está errado, é apenas uma
+// recomendação de boas práticas
 public class CustomAuthenticationManager implements  AuthenticationManager{
 
     @Override

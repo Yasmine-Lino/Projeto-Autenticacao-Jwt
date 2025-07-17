@@ -24,14 +24,22 @@ public class LoginController {
     @PostMapping("/auth")
     public ResponseEntity<?> authenticate(@RequestBody AutenticacaoRequest autenticacaoRequest) {
 
+        //TODO: Use Log4J que já tem no spring
         System.out.println("Requisição recebida: " + autenticacaoRequest.getUsuario());
         try {
+            //TODO: Trocar o parametro para receber apenas as strings do usuario e da senha, porque a classe
+            // UsernamePasswordAuthenticationToken não é usada para validar o usuario e senha
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(autenticacaoRequest.getUsuario(), autenticacaoRequest.getSenha())
             );
             String token = jwtService.generateToken(autenticacaoRequest.getUsuario());
+            //TODO: Use Log4J que já tem no spring
             System.out.println("Token gerado: " + token);
+
+            //TODO: Retorne como um json ex: { "accessToken": "[token gerado]" }
             return ResponseEntity.ok("Bearer " + token);
+
+            //TODO: Atenção com a identação
             } catch (Exception e) {
                 return ResponseEntity.status(401).body("Credenciais inválidas: " + e.getMessage());
         }
