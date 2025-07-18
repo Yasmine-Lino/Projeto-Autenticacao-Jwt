@@ -6,15 +6,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Component;
 
+@Component
 public class CustomAuthenticationManager implements  AuthenticationManager{
 
     @Override
     public Authentication authenticate(Authentication authentication) {
         String nomeUsuario = authentication.getName();
         String senha = authentication.getCredentials().toString();
-
-
-        System.out.println("Autenticacao: " + nomeUsuario + " - " + senha );
 
         if ("usuario".equals(nomeUsuario) && "senha123".equals(senha)) {
             return new UsernamePasswordAuthenticationToken(nomeUsuario, senha, null);

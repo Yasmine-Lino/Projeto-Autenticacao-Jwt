@@ -1,5 +1,6 @@
 package br.com.yasmine.lino.model;
 
+//@Data
 public class AutenticacaoRequest {
 
     private String usuario;
@@ -19,5 +20,9 @@ public class AutenticacaoRequest {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public boolean verificar(String usuario, String senha) {
+        return  ("usuario".equals(usuario) || "admin".equals(usuario)) && "senha123".equals(senha);
     }
 }
